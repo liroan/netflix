@@ -1,0 +1,57 @@
+.demonstration
+  background: #141414
+  text-align: center
+  color: #fff
+  overflow-x: hidden
+.demonstration__title
+  padding-top: 100px
+  h1
+    font-weight: 600
+    font-size: 36px
+
+.demonstration__description
+  width: 40%
+  margin: 50px auto 0
+  h2
+    font-weight: 400
+    font-size: 24px
+    color: #ccc
+.demonstration__films
+  margin-top: 15px
+.films-line
+  display: flex
+  animation: slider2 2.5s infinite linear
+
+.demonstration__first-films-line
+  margin-top: 70px
+  transform: translateX(-185px)
+  animation: slider 2.5s infinite linear
+
+.films-line__film
+  margin-right: 15px
+  img
+    width: 370px
+    height: 215px
+    border-radius: 18px
+
+
+.demonstration__button
+  margin-top: 30px
+  button
+    background: #E50914
+    color: #fff
+    padding: 10px 150px
+    cursor: pointer
+  padding-bottom: 30px
+
+@keyframes slider
+  from
+    transform: translateX(-185px)
+  to
+    transform: translateX(-555px)
+
+@keyframes slider2
+  from
+    transform: translateX(0px)
+  to
+    transform: translateX(-370px)

@@ -1,18 +1,17 @@
 import arrow from "../../img/arrow.png";
-import {useCallback, useEffect, useState} from "react";
+import {FC, Ref, useCallback, useEffect, useState} from "react";
 import SliderItem from "./SliderItem/SliderItem";
-let next = () => {};
+import {IFilm} from "../../types/types.";
 
-const Slider = ({widthScreen}:any) => {
-    const array = [{rating: 5.5, price: 299, img: "https://i.pinimg.com/originals/8f/ef/79/8fef79d50e79201be484ceb478892916.jpg"},
-        {rating: 5.5, price: 299, img: "https://i.pinimg.com/originals/8f/ef/79/8fef79d50e79201be484ceb478892916.jpg"},
-        {rating: 5.5, price: 299, img: "https://i.pinimg.com/originals/8f/ef/79/8fef79d50e79201be484ceb478892916.jpg"},
-        {rating: 5.5, price: 299, img: "https://i.pinimg.com/originals/8f/ef/79/8fef79d50e79201be484ceb478892916.jpg"},
-        {rating: 5.5, price: 299, img: "https://i.pinimg.com/originals/8f/ef/79/8fef79d50e79201be484ceb478892916.jpg"},
-        {rating: 5.5, price: 299, img: "https://i.pinimg.com/originals/8f/ef/79/8fef79d50e79201be484ceb478892916.jpg"},
-        {rating: 5.5, price: 299, img: "https://i.pinimg.com/originals/8f/ef/79/8fef79d50e79201be484ceb478892916.jpg"}]
+interface ISlider {
+    widthScreen: any,
+    films: IFilm[]
+}
+
+const Slider:FC<ISlider> = ({widthScreen, films}) => {
+
     const width = 422;
-    const countItem = array.length;
+    const countItem = films.length;
     const [countClick, setCountClick] = useState(0);
     const [startItemsOnPage, setStartItemsOnPage] = useState(0);
     useEffect(() => {
@@ -28,7 +27,7 @@ const Slider = ({widthScreen}:any) => {
                 {countClick > 0 && <img src={arrow} alt=""/>}
             </div>
             <div className="slider__wrapper" style={{transform: `translateX(${-countClick*width}px)`}}>
-                {array.map(el => <SliderItem {...el} />)}
+                {films.map(film => <SliderItem {...film} />)}
             </div>
             <div onClick={nextItem} className="slider__arrow slider__arrow_right">
                 {countItem - startItemsOnPage > countClick && <img src={arrow} alt=""/>}

@@ -1,20 +1,10 @@
 import "./MainPage.sass"
 import info from "../../img/info.png"
 import next from "../../img/next.png"
-import bg from "../../img/bg.png"
-import arrow from "../../img/arrow.png"
-import {useEffect, useRef, useState} from "react";
+import {useRef} from "react";
+import Slider from "../Slider/Slider";
 const MainPage = () => {
-
-    const width = 422;
-    const countItem = 7;
     const widthScreen = useRef<any>(null);
-    const [countClick, setCountClick] = useState(0);
-    const [startItemsOnPage, setStartItemsOnPage] = useState(0);
-    useEffect(() => {
-        setStartItemsOnPage(Math.floor(parseInt(widthScreen.current.clientWidth) / width));
-    }, [])
-
     return (
         <section className={"mainPage"}>
             <div className="mainPage__popular-film popular-film">
@@ -51,66 +41,7 @@ const MainPage = () => {
                 <div ref={widthScreen} className="lines-proposed-film__container">
                     <div className="mainPage__proposed-films proposed-films">
                         <div className="proposed-films__title"><h3>Новинки</h3></div>
-                        <div className="proposed-films__slider slider">
-                            <div onClick={() => setCountClick(prev => prev - 1)} className="slider__arrow slider__arrow_left">
-                                {countClick > 0 && <img src={arrow} alt=""/>}
-                            </div>
-                            <div className="slider__wrapper" style={{transform: `translateX(${-countClick*width}px)`}}>
-                                <div className="slider__item">
-                                    <img src={bg} alt=""/>
-                                    <div className="slider__marks">
-                                        <div className="slider__mark mark slider__mark gray"><p>5.5</p></div>
-                                        <div className="slider__mark mark red"><p>299 Р</p></div>
-                                    </div>
-                                    <div className="slider__mask"><p>Dima Loh</p></div>
-                                </div>
-                                <div className="slider__item">
-                                    <img src={bg} alt=""/>
-                                    <div className="slider__marks">
-                                        <div className="slider__mark mark slider__mark gray"><p>5.5</p></div>
-                                        <div className="slider__mark mark red"><p>299 Р</p></div>
-                                    </div>
-                                </div>
-                                <div className="slider__item">
-                                    <img src={bg} alt=""/>
-                                    <div className="slider__marks">
-                                        <div className="slider__mark mark slider__mark gray"><p>5.5</p></div>
-                                        <div className="slider__mark mark red"><p>299 Р</p></div>
-                                    </div>
-                                </div>
-                                <div className="slider__item">
-                                    <img src={bg} alt=""/>
-                                    <div className="slider__marks">
-                                        <div className="slider__mark mark slider__mark gray"><p>5.5</p></div>
-                                        <div className="slider__mark mark red"><p>299 Р</p></div>
-                                    </div>
-                                </div>
-                                <div className="slider__item">
-                                    <img src={bg} alt=""/>
-                                    <div className="slider__marks">
-                                        <div className="slider__mark mark slider__mark gray"><p>5.5</p></div>
-                                        <div className="slider__mark mark red"><p>299 Р</p></div>
-                                    </div>
-                                </div>
-                                <div className="slider__item">
-                                    <img src={bg} alt=""/>
-                                    <div className="slider__marks">
-                                        <div className="slider__mark mark slider__mark gray"><p>5.5</p></div>
-                                        <div className="slider__mark mark red"><p>299 Р</p></div>
-                                    </div>
-                                </div>
-                                <div className="slider__item">
-                                    <img src={bg} alt=""/>
-                                    <div className="slider__marks">
-                                        <div className="slider__mark mark slider__mark gray"><p>5.5</p></div>
-                                        <div className="slider__mark mark red"><p>299 Р</p></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div onClick={() => setCountClick(prev => prev + 1)} className="slider__arrow slider__arrow_right">
-                                {countItem - startItemsOnPage > countClick && <img src={arrow} alt=""/>}
-                            </div>
-                        </div>
+                        <Slider widthScreen={widthScreen}/>
                     </div>
                 </div>
             </div>

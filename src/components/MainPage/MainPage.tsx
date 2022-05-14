@@ -1,7 +1,7 @@
 import "./MainPage.sass"
 import info from "../../img/info.png"
 import next from "../../img/next.png"
-
+import bg from "../../img/bg.png"
 const MainPage = () => {
     return (
         <section className={"mainPage"}>
@@ -33,6 +33,36 @@ const MainPage = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="mainPage__lines-proposed-film lines-proposed-film">
+                <div className="lines-proposed-film__container">
+                    <div className="mainPage__proposed-films proposed-films">
+                        <div className="proposed-films__title"><h3>Новинки</h3></div>
+                        <div className="proposed-films__slider slider">
+                            <div className="slider__arrow slider__arrow_left">
+                                aaa
+                            </div>
+                            <div className="slider__wrapper">
+                                <div className="slider__item">
+                                    <img src={bg} alt=""/>
+                                </div>
+                                <div className="slider__item">
+                                    <img src={bg} alt=""/>
+                                </div>
+                                <div className="slider__item">
+                                    <img src={bg} alt=""/>
+                                </div>
+                                <div className="slider__item">
+                                    <img src={bg} alt=""/>
+                                </div>
+                            </div>
+                            <div className="slider__arrow slider__arrow_right">
+                                bbb
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>

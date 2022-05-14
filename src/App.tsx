@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import MainPage from "./components/MainPage/MainPage";
 
 const App = () => {
     return (
         <div>
-            clear
+            <MainPage />
         </div>
     )
 }

@@ -20,12 +20,16 @@
   margin-top: 15px
 .films-line
   display: flex
-  animation: slider2 2.5s infinite linear
+  animation-name: slider
+  animation-duration: 9000ms
+  animation-timing-function: linear
+  animation-delay: 0s
+  animation-iteration-count: infinite
+  animation-direction: normal
+
 
 .demonstration__first-films-line
   margin-top: 70px
-  transform: translateX(-185px)
-  animation: slider 2.5s infinite linear
 
 .films-line__film
   margin-right: 15px
@@ -44,14 +48,14 @@
     cursor: pointer
   padding-bottom: 30px
 
+
+.lol
+  display: flex
+  transform: translateX(-185px)
+  width: 100vh
+  transition: 0ms
 @keyframes slider
   from
-    transform: translateX(-185px)
+    transform: translateX(0)
   to
-    transform: translateX(-555px)
-
-@keyframes slider2
-  from
-    transform: translateX(0px)
-  to
-    transform: translateX(-370px)
+    transform: translateX(-3080px)

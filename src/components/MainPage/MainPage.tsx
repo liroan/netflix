@@ -1,6 +1,6 @@
 import "./MainPage.sass"
 import {FC} from "react";
-import FilmLine from "../FilmLine/FilmLine";
+import FilmLine from "./FilmsLines/FilmLine/FilmLine";
 import FilmInfo from "../FilmInfo/FilmInfo";
 import FilmsLines from "./FilmsLines/FilmsLines";
 const MainPage:FC = () => {
@@ -21,11 +21,12 @@ const MainPage:FC = () => {
         {rating: 5.5, price: 299, img: "https://i.pinimg.com/originals/8f/ef/79/8fef79d50e79201be484ceb478892916.jpg"},
         {rating: 5.5, price: 299, img: "https://i.pinimg.com/originals/8f/ef/79/8fef79d50e79201be484ceb478892916.jpg"},
         {rating: 5.5, price: 299, img: "https://i.pinimg.com/originals/8f/ef/79/8fef79d50e79201be484ceb478892916.jpg"},
-        {rating: 5.5, price: 299, img: "https://i.pinimg.com/originals/8f/ef/79/8fef79d50e79201be484ceb478892916.jpg"}]
+        {rating: 5.5, price: 299, img: "https://i.pinimg.com/originals/8f/ef/79/8fef79d50e79201be484ceb478892916.jpg"}
+    ]
     return (
         <section className={"mainPage"}>
             <FilmInfo {...film}/>
-            <FilmsLines films={films}/>
+            <FilmsLines films={films} />
         </section>
     )
 }

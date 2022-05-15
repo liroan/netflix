@@ -5,3 +5,7 @@ export interface IFilm {
     price: number,
     img: string
 }
+export interface IGenre {
+    title: string,
+    img: string
+}

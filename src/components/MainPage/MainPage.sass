@@ -96,6 +96,7 @@
 .proposed-films__title
   font-size: 26px
   color: #fff
+  margin-bottom: 10px
 .slider__arrow
   position: absolute
   top: 110px
@@ -135,8 +136,6 @@
     margin: 0 50px 0 35px
     .slider__marks
       opacity: 0
-    .slider__mask
-      opacity: 1
 
 
 .slider__marks
@@ -152,7 +151,7 @@
   margin-right: 5px
 
 .slider__mask
-  opacity: 0
+  opacity: 1
   transition: 1s
   background: rgba(0,0,0,0.7)
   position: absolute
@@ -164,11 +163,14 @@
   display: flex
   align-items: center
   justify-content: center
-  p
-    color: #ffffff
-    text-align: center
-    text-transform: uppercase
+  color: #ffffff
+  font-size: 26px
+  font-weight: 600
 
+.slider__item-genre
+  img
+    width: 300px
+    height: 200px
 
 @media screen and (max-width: 1180px)
   .popular-film__container

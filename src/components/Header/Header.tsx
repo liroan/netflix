@@ -21,14 +21,25 @@ const Header = () => {
                 <div className="header__left">
                     <div className="header__burger"><img src="https://cdn-icons-png.flaticon.com/128/1828/1828859.png" alt=""/></div>
                     <div className="header__logo"><img src="https://psv4.userapi.com/c235031/u254066399/docs/d3/56c45ed3750f/va.png?extra=nemoGrZleVc3Kqe8r9bvbv2GzWta0MmPbuC4-7PjTumQyP3pYvHH2XWgrBTxI0lzN6UIQlVxcdQZa6ZVTnn2DqNX-IJg1ZiNRN47kRE0gSipueA1Tzzf9yVfGe85pvgNy1aRBLIfUcgX1zlGJ6qlIlk" alt=""/></div>
-                    <nav>
-                        <ul>
-                            <li><a>Избранное</a></li>
-                            <li><a>Магазин</a></li>
-                            <li><a>Буду смотреть</a></li>
-                            <li><a><img src="https://cdn-icons.flaticon.com/png/128/3641/premium/3641364.png?token=exp=1652614657~hmac=d125e6e1401dc3851d066b08f769d1aa" alt=""/></a></li>
-                        </ul>
-                    </nav>
+                    {
+                        isSearching
+                            ?
+                            <div className={"header__search search"}>
+                                <input type="text"/>
+                                <div className="search__crest" onClick={() => setIsSearching(false)}>
+
+                                </div>
+                            </div>
+                            :
+                        <nav>
+                            <ul>
+                                <li><a>Избранное</a></li>
+                                <li><a>Магазин</a></li>
+                                <li><a>Буду смотреть</a></li>
+                                <li><span onClick={() => setIsSearching(true)}><img src="https://cdn-icons.flaticon.com/png/128/3641/premium/3641364.png?token=exp=1652614657~hmac=d125e6e1401dc3851d066b08f769d1aa" alt=""/></span></li>
+                            </ul>
+                        </nav>
+                    }
                 </div>
                 <div className="header__user">
                     <img src={user} alt=""/>

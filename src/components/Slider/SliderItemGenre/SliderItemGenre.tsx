@@ -1,3 +1,5 @@
+import {Simulate} from "react-dom/test-utils";
+
 
 
 const SliderItemGenre = ({img, title, card} : any) => {

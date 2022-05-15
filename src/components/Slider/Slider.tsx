@@ -18,12 +18,12 @@ const Slider:FC<ISlider> = ({widthScreen, films, isGenre}) => {
     const [startItemsOnPage, setStartItemsOnPage] = useState(0);
     useEffect(() => {
         window.addEventListener('resize', function(event) {
-            console.log(countClick)
+            console.log(parseInt(widthScreen.current.clientWidth) / (card?.current?.clientWidth + 20 || 0));
             setStartItemsOnPage(
-                Math.floor(parseInt(widthScreen.current.clientWidth) / (card?.current?.clientWidth || 0)) + countClick)
+                Math.floor(parseInt(widthScreen.current.clientWidth) / (card?.current?.clientWidth + 20 || 0)) + countClick)
         });
         if (widthScreen)
-            setStartItemsOnPage(Math.floor(parseInt(widthScreen.current.clientWidth) / (card?.current?.clientWidth || 0)));
+            setStartItemsOnPage(Math.floor(parseInt(widthScreen.current.clientWidth) / (card?.current?.clientWidth + 20|| 0)));
     }, [widthScreen, countClick])
 
     const nextItem = useCallback(() => setCountClick(prev => prev + 1), []);

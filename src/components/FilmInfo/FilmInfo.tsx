@@ -17,6 +17,9 @@ interface IFilmInfo {
 const FilmInfo:FC<IFilmInfo> = ({title, rating, year, genre, country, restriction, time, marks, desc}) => {
     return (
         <div className="mainPage__popular-film popular-film">
+            <video autoPlay muted loop id="myVideo" className={"popular-film__video"}>
+                <source src="https://html5css.ru/howto/rain.mp4" type="video/mp4"/>
+            </video>
             <div className="popular-film__mask">
                 <div className="popular-film__container">
                     <div className="popular-film__title"><h1>{title}</h1></div>

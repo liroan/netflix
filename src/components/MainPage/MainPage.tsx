@@ -2,6 +2,7 @@ import "./MainPage.sass"
 import {FC} from "react";
 import FilmLine from "../FilmLine/FilmLine";
 import FilmInfo from "../FilmInfo/FilmInfo";
+import FilmsLines from "./FilmsLines/FilmsLines";
 const MainPage:FC = () => {
     let film = {
         title: "Джанго освобожденный",
@@ -24,9 +25,7 @@ const MainPage:FC = () => {
     return (
         <section className={"mainPage"}>
             <FilmInfo {...film}/>
-            <div className="mainPage__lines-proposed-film lines-proposed-film">
-                <FilmLine films={films} title={"Новинки"}/>
-            </div>
+            <FilmsLines films={films}/>
         </section>
     )
 }

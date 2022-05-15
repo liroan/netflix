@@ -16,12 +16,13 @@ const Slider:FC<ISlider> = ({widthScreen, films}) => {
     const [startItemsOnPage, setStartItemsOnPage] = useState(0);
     useEffect(() => {
         window.addEventListener('resize', function(event) {
+            console.log(countClick)
             setStartItemsOnPage(
                 Math.floor(parseInt(widthScreen.current.clientWidth) / (card?.current?.clientWidth || 0)) + countClick)
         });
         if (widthScreen)
             setStartItemsOnPage(Math.floor(parseInt(widthScreen.current.clientWidth) / (card?.current?.clientWidth || 0)));
-    }, [widthScreen])
+    }, [widthScreen, countClick])
 
     const nextItem = useCallback(() => setCountClick(prev => prev + 1), []);
     const previousItem = useCallback(() => setCountClick(prev => prev - 1), []);

@@ -1,5 +1,5 @@
 import arrow from "../../img/arrow.png";
-import {FC, Ref, useCallback, useEffect, useState} from "react";
+import {FC, Ref, useCallback, useEffect, useRef, useState} from "react";
 import SliderItem from "./SliderItem/SliderItem";
 import {IFilm} from "../../types/types.";
 
@@ -10,13 +10,17 @@ interface ISlider {
 
 const Slider:FC<ISlider> = ({widthScreen, films}) => {
 
-    const width = 422;
+    const card = useRef<any>(null);
     const countItem = films.length;
     const [countClick, setCountClick] = useState(0);
     const [startItemsOnPage, setStartItemsOnPage] = useState(0);
     useEffect(() => {
+        window.addEventListener('resize', function(event) {
+            setStartItemsOnPage(
+                Math.floor(parseInt(widthScreen.current.clientWidth) / (card?.current?.clientWidth || 0)) + countClick)
+        });
         if (widthScreen)
-            setStartItemsOnPage(Math.floor(parseInt(widthScreen.current.clientWidth) / width));
+            setStartItemsOnPage(Math.floor(parseInt(widthScreen.current.clientWidth) / (card?.current?.clientWidth || 0)));
     }, [widthScreen])
 
     const nextItem = useCallback(() => setCountClick(prev => prev + 1), []);
@@ -26,8 +30,8 @@ const Slider:FC<ISlider> = ({widthScreen, films}) => {
             <div onClick={previousItem} className="slider__arrow slider__arrow_left">
                 {countClick > 0 && <img src={arrow} alt=""/>}
             </div>
-            <div className="slider__wrapper" style={{transform: `translateX(${-countClick*width}px)`}}>
-                {films.map(film => <SliderItem {...film} />)}
+            <div className="slider__wrapper" style={{transform: `translateX(${-countClick*(card?.current?.clientWidth + 20|| 0) }px)`}}>
+                {films.map(film => <SliderItem {...film} card={card}/>)}
             </div>
             <div onClick={nextItem} className="slider__arrow slider__arrow_right">
                 {countItem - startItemsOnPage > countClick && <img src={arrow} alt=""/>}

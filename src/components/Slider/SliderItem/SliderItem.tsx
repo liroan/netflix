@@ -1,9 +1,9 @@
-import exp from "constants";
 
 
-const SliderItem = ({img, rating, price}:any) => {
+
+const SliderItem = ({img, rating, price, card}:any) => {
     return (
-        <div className="slider__item">
+        <div className="slider__item" ref={card}>
             <img src={img} alt=""/>
             <div className="slider__marks">
                 <div className="slider__mark mark slider__mark gray"><p>{rating}</p></div>

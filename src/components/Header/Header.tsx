@@ -8,7 +8,7 @@ const Header = () => {
 
     useEffect(() => {
         function scrollFunc(event:any) {
-            setIsShowHeader(prevScroll > window.scrollY)
+            setIsShowHeader(prevScroll >= window.scrollY)
             setPrevScroll(window.scrollY)
         }
         window.addEventListener("scroll", scrollFunc)

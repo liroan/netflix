@@ -2,7 +2,7 @@ import "./Header.sass"
 import user from "../../img/user.png"
 import {useEffect, useState} from "react";
 const Header = () => {
-    const [prevScroll, setPrevScroll] = useState(0);
+    const [prevScroll, setPrevScroll] = useState(10**10);
     const [isShowHeader, setIsShowHeader] = useState(true);
     const [isSearching, setIsSearching] = useState(false);
 
@@ -14,6 +14,10 @@ const Header = () => {
         window.addEventListener("scroll", scrollFunc)
         return () => window.removeEventListener("scroll", scrollFunc);
     }, [prevScroll])
+
+    useEffect(() => {
+        setPrevScroll(window.scrollY)
+    }, [])
 
     return (
         <header className={!isShowHeader ? "header_no-active" : (prevScroll === 0 ? "" : "header_active")}>

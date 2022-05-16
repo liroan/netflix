@@ -24,7 +24,7 @@ const Slider:FC<ISlider> = ({widthScreen, films, isGenre}) => {
         });
         if (widthScreen)
             setStartItemsOnPage(Math.floor(parseInt(widthScreen.current.clientWidth) / (card?.current?.clientWidth + 20|| 0)));
-    }, [widthScreen, countClick])
+    }, [widthScreen, countClick, card])
 
     const nextItem = useCallback(() => setCountClick(prev => prev + 1), []);
     const previousItem = useCallback(() => setCountClick(prev => prev - 1), []);

@@ -1,6 +1,6 @@
 import arrow from "../../img/arrow.png";
 import {FC, Ref, useCallback, useEffect, useRef, useState} from "react";
-import SliderItem from "./SliderItem/SliderItem";
+import FilmCard from "./SliderItem/FilmCard";
 import {IFilm, IGenre} from "../../types/types.";
 import SliderItemGenre from "./SliderItemGenre/SliderItemGenre";
 
@@ -34,7 +34,7 @@ const Slider:FC<ISlider> = ({widthScreen, films, isGenre}) => {
                 {countClick > 0 && <img src={arrow} alt=""/>}
             </div>
             <div className="slider__wrapper" style={{transform: `translateX(${-countClick*(card?.current?.clientWidth + 20|| 0) }px)`}}>
-                {films.map(film => !isGenre ? <SliderItem {...film} card={card}/> :
+                {films.map(film => !isGenre ? <FilmCard {...film} card={card}/> :
                     <SliderItemGenre {...film} card={card}/>)}
             </div>
             <div onClick={nextItem} className="slider__arrow slider__arrow_right">

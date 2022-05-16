@@ -1,9 +1,9 @@
 
 
 
-const SliderItem = ({img, rating, price, card}:any) => {
+const FilmCard = ({img, rating, price, card}:any) => {
     return (
-        <div className="slider__item" ref={card}>
+        <div className="slider__item card card_hover" ref={card}>
             <img src={img} alt=""/>
             <div className="slider__marks">
                 <div className="slider__mark mark slider__mark gray"><p>{rating}</p></div>
@@ -13,4 +13,4 @@ const SliderItem = ({img, rating, price, card}:any) => {
     )
 }
 
-export default SliderItem;
+export default FilmCard;

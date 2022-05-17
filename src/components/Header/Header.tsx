@@ -1,6 +1,7 @@
 import "./Header.sass"
 import user from "../../img/user.png"
 import {useEffect, useState} from "react";
+import HeaderModal from "./HeaderModal/HeaderModal";
 const Header = () => {
     const [prevScroll, setPrevScroll] = useState(10**10);
     const [isShowHeader, setIsShowHeader] = useState(true);
@@ -8,17 +9,23 @@ const Header = () => {
 
     useEffect(() => {
         function scrollFunc(event:any) {
+            /*if (isShowHeader && prevScroll < window.scrollY)
+                setIsShowHeader(false)
+            else if (!isShowHeader && prevScroll >= window.scrollY)
+                setIsShowHeader(true)*/
             setIsShowHeader(prevScroll >= window.scrollY)
+            if (isSearching && prevScroll < window.scrollY)
+                setIsSearching(false)
             setPrevScroll(window.scrollY)
         }
         window.addEventListener("scroll", scrollFunc)
         return () => window.removeEventListener("scroll", scrollFunc);
-    }, [prevScroll])
+    }, [prevScroll, isSearching])
 
     useEffect(() => {
         setPrevScroll(window.scrollY)
     }, [])
-
+    console.log("LOL")
     return (
         <header className={!isShowHeader ? "header_no-active" : (prevScroll === 0 ? "" : "header_active")}>
             <div className="header__container">
@@ -29,10 +36,11 @@ const Header = () => {
                         isSearching
                             ?
                             <div className={"header__search search"}>
-                                <input type="text"/>
-                                <div className="search__crest" onClick={() => setIsSearching(false)}>
-
+                                <div className="search__block">
+                                    <input type="text"/>
+                                    <HeaderModal/>
                                 </div>
+                                <div className="search__crest" onClick={() => setIsSearching(false)}></div>
                             </div>
                             :
                         <nav>

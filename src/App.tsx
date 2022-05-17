@@ -9,9 +9,9 @@ import HeaderModal from './components/Header/HeaderModal/HeaderModal';
 const App = () => {
     return (
         <div>
-            {/*<Header />*/}
-            {/*<MainPage />*/}
-            <HeaderModal/>
+            <Header />
+            <MainPage />
+           {/* <HeaderModal/>*/}
             {/*<GenrePage />*/}
         </div>
     )

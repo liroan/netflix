@@ -70,18 +70,22 @@ header
     width: 25px
     height: 30px
 
-
+.search__block
+  width: 100%
+  max-width: 400px
+  position: relative
+  margin-right: 10px
 .search
   margin-left: 30px
+  position: relative
   display: flex
   opacity: 1
   transition: 1s
   width: 50%
   input
-    margin-top: 10px
-    margin-right: 15px
-    outline: none
     width: 100%
+    margin-top: 10px
+    outline: none
     padding: 5px
     font-size: 14px
     border-radius: 5px
@@ -121,6 +125,8 @@ header
         a
           font-size: 14px
 @media screen and (max-width: 775px)
+  .search
+    display: none
   .header__left
     ul
       display: none

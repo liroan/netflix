@@ -25,7 +25,6 @@ const Header = () => {
     useEffect(() => {
         setPrevScroll(window.scrollY)
     }, [])
-    console.log("LOL")
     return (
         <header className={!isShowHeader ? "header_no-active" : (prevScroll === 0 ? "" : "header_active")}>
             <div className="header__container">
@@ -53,7 +52,7 @@ const Header = () => {
                         </nav>
                     }
                 </div>
-                <div className="header__user">
+                <div className="header__user user">
                     <img src={user} alt=""/>
                 </div>
             </div>

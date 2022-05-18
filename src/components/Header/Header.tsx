@@ -3,17 +3,18 @@ import user from "../../img/user.png"
 import {useEffect, useState} from "react";
 import HeaderModal from "./HeaderModal/HeaderModal";
 const Header = () => {
-    const [prevScroll, setPrevScroll] = useState(10**10);
+    const [prevScroll, setPrevScroll] = useState(0);
     const [isShowHeader, setIsShowHeader] = useState(true);
     const [isSearching, setIsSearching] = useState(false);
 
     useEffect(() => {
         function scrollFunc(event:any) {
+            console.log("LOL")
             /*if (isShowHeader && prevScroll < window.scrollY)
                 setIsShowHeader(false)
             else if (!isShowHeader && prevScroll >= window.scrollY)
                 setIsShowHeader(true)*/
-            setIsShowHeader(prevScroll >= window.scrollY)
+            setIsShowHeader(prevScroll > window.scrollY)
             if (isSearching && prevScroll < window.scrollY)
                 setIsSearching(false)
             setPrevScroll(window.scrollY)

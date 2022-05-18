@@ -12,7 +12,7 @@ const UserModal = (props:any) => {
                         <div className="user-modal__title"><h4>Larikova1239</h4></div>
                         <div className="user-modal__mail"><h5>kozel@yandex.com</h5></div>
                     </div>
-                    <div className="user-modal__ava user"><img src={user} alt=""/></div>
+                    <div className="user-modal__ava user"><span className="material-symbols-rounded">person</span></div>
                 </div>
                 <div className="line"></div>
                 <div className="user-modal__refs">

@@ -63,7 +63,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="header__user user">
-                    <img src={user} alt=""/>
+                    <span className="material-symbols-rounded">person</span>
                 </div>
             </div>
         </header>

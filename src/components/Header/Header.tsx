@@ -2,18 +2,17 @@ import "./Header.sass"
 import user from "../../img/user.png"
 import {useEffect, useState} from "react";
 import HeaderModal from "./HeaderModal/HeaderModal";
+import menu from "../../img/menu.svg"
+import UserModal from "../UserModal/UserModal";
 const Header = () => {
     const [prevScroll, setPrevScroll] = useState(0);
     const [isShowHeader, setIsShowHeader] = useState(true);
     const [isSearching, setIsSearching] = useState(false);
-
+    const [isOpenMenu, setIsOpenMenu] = useState(false);
     useEffect(() => {
-        function scrollFunc(event:any) {
-            console.log("LOL")
-            /*if (isShowHeader && prevScroll < window.scrollY)
-                setIsShowHeader(false)
-            else if (!isShowHeader && prevScroll >= window.scrollY)
-                setIsShowHeader(true)*/
+        function scrollFunc(e:any) {
+            e.preventDefault();
+            console.log(e.preventDefault)
             setIsShowHeader(prevScroll > window.scrollY)
             if (isSearching && prevScroll < window.scrollY)
                 setIsSearching(false)
@@ -28,30 +27,40 @@ const Header = () => {
     }, [])
     return (
         <header className={!isShowHeader ? "header_no-active" : (prevScroll === 0 ? "" : "header_active")}>
+            {isOpenMenu && <UserModal closeModal={() => setIsOpenMenu(false)}/>}
             <div className="header__container">
-                <div className="header__left">
-                    <div className="header__burger"><img src="https://cdn-icons-png.flaticon.com/128/1828/1828859.png" alt=""/></div>
-                    <div className="header__logo"><img src="https://psv4.userapi.com/c235031/u254066399/docs/d3/56c45ed3750f/va.png?extra=nemoGrZleVc3Kqe8r9bvbv2GzWta0MmPbuC4-7PjTumQyP3pYvHH2XWgrBTxI0lzN6UIQlVxcdQZa6ZVTnn2DqNX-IJg1ZiNRN47kRE0gSipueA1Tzzf9yVfGe85pvgNy1aRBLIfUcgX1zlGJ6qlIlk" alt=""/></div>
-                    {
-                        isSearching
-                            ?
-                            <div className={"header__search search"}>
-                                <div className="search__block">
-                                    <input type="text"/>
-                                    <HeaderModal/>
-                                </div>
-                                <div className="search__crest" onClick={() => setIsSearching(false)}></div>
+                <div className={"header__logo" + (isSearching ? " s" : "")}>
+                    <img src="https://psv4.userapi.com/c235031/u254066399/docs/d3/56c45ed3750f/va.png?extra=nemoGrZleVc3Kqe8r9bvbv2GzWta0MmPbuC4-7PjTumQyP3pYvHH2XWgrBTxI0lzN6UIQlVxcdQZa6ZVTnn2DqNX-IJg1ZiNRN47kRE0gSipueA1Tzzf9yVfGe85pvgNy1aRBLIfUcgX1zlGJ6qlIlk" alt=""/>
+                </div>
+                <div className="header__info">
+                    {isSearching ?
+                        <div className={"header__search search"}>
+                            <div className="search__block">
+                                <input type="text"/>
+                                <HeaderModal/>
                             </div>
-                            :
-                        <nav>
-                            <ul>
-                                <li><a>Избранное</a></li>
-                                <li><a>Магазин</a></li>
-                                <li><a>Буду смотреть</a></li>
-                                <li><span onClick={() => setIsSearching(true)}><img src="https://cdn-icons.flaticon.com/png/128/3641/premium/3641364.png?token=exp=1652614657~hmac=d125e6e1401dc3851d066b08f769d1aa" alt=""/></span></li>
-                            </ul>
-                        </nav>
+                            <div className="search__crest" onClick={() => setIsSearching(false)}>
+                                <span className="material-symbols-rounded">close</span>
+                            </div>
+                        </div>
+                        :
+                        <>
+                            <nav>
+                                <ul>
+                                    <li><a href="/">Магазин</a></li>
+                                    <li><a href="/">Избранное</a></li>
+                                    <li><a href="/">Буду смотреть</a></li>
+                                </ul>
+                            </nav>
+                            <div className="header__search-button" onClick={() => setIsSearching(true)}>
+                                <span className="material-symbols-rounded">search</span>
+                            </div>
+                        </>
                     }
+
+                    <div className="header__burger" onClick={() => setIsOpenMenu(true)}>
+                        <span className="material-symbols-rounded">menu</span>
+                    </div>
                 </div>
                 <div className="header__user user">
                     <img src={user} alt=""/>

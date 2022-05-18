@@ -11,12 +11,13 @@ import FilmModal from "./components/FilmModal/FilmModal";
 const App = () => {
     return (
         <div>
-            {/*<Header />
-            <MainPage />*/}
+            <Header />
+            <MainPage />
+            {/*<UserModal />*/}
             {/*<UserModal />*/}
            {/* <HeaderModal/>*/}
             {/*<GenrePage />*/}
-            <FilmModal />
+            {/*<FilmModal />*/}
         </div>
     )
 }

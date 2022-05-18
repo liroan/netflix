@@ -2,10 +2,11 @@ import user from "../../img/user.png";
 
 import "./UserModal.sass"
 import "../Header/Header.sass"
-const UserModal = () => {
+const UserModal = (props:any) => {
     return (
         <div className="header__user-modal user-modal">
             <div className="user-modal__container">
+                <div className="user-modal__close" onClick={props.closeModal}><span className="material-symbols-rounded">close</span></div>
                 <div className="user-modal__header">
                     <div className="user-modal__info">
                         <div className="user-modal__title"><h4>Larikova1239</h4></div>
@@ -32,7 +33,7 @@ const UserModal = () => {
                     </ul>
                 </div>
             </div>
-            <div className="line"></div>
+            <div className="line line_low"></div>
             <div className="user-modal__container">
                 <div className="user-modal__other-users">
                     <div className="user-modal__add">

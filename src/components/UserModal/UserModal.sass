@@ -1,9 +1,16 @@
 ul
   list-style: none
-
+.user-modal__container
+  .user-modal__close
+    cursor: pointer
+    text-align: right
+    margin-bottom: 10px
 .header__user-modal
-  padding-top: 20px
-  padding-bottom: 20px
+  position: absolute
+  z-index: 1000000
+  top: 0
+  right: 0
+  padding-top: 10px
 .user-modal
   width: 350px
   border-radius: 5px
@@ -41,6 +48,7 @@ ul
 .user-modal__add
   display: flex
   align-items: center
+  padding-bottom: 20px
   button
     margin-right: 20px
     background: none
@@ -50,3 +58,15 @@ ul
     color: rgba(229, 229, 229, 0.7)
   p
     font-weight: 300
+
+@media screen and (max-width: 800px)
+  .user-modal
+    width: 100%
+    min-height: 100vh
+  .user-modal__add
+    position: absolute
+    bottom: 1px
+  .line_low
+    position: absolute
+    bottom: 60px
+    left: 0
